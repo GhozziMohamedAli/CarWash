@@ -39,16 +39,16 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
         ]);
-        return 'validated';
+
 
         $user=User::create([
             'name' => $request['name'],
             'email'=> $request["email"],
             'password' => bcrypt($request["password"]),
         ]);
-        $role = Role::create(['name' => 'Admin']);
+        //$role = Role::create(['name' => 'Admin']);
         $user->AssignRole('Admin');
     }
 

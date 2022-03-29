@@ -41,7 +41,7 @@ class CustomerController extends Controller
             'email'=> $request["email"],
             'password' => bcrypt($request["password"]),
         ]);
-        $role = Role::create(['name' => 'Customer']);
+       // $role = Role::create(['name' => 'Customer']);
         $user->AssignRole('Customer');
     }
 

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 class WorkerController extends Controller
 {
     /**
@@ -39,7 +40,7 @@ class WorkerController extends Controller
             'email'=> $request["email"],
             'password' => bcrypt($request["password"]),
         ]);
-        $role = Role::create(['name' => 'Worker']);
+       // $role = Role::create(['name' => 'Worker']);
         $user->AssignRole('Worker');
     }
 
